@@ -13,5 +13,12 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>    
+    <script>
+      // Checking if the browser has a serviceworker function
+      if('serviceWorker' in navigator){
+        // Creating  our service worker
+        navigator.serviceWorker.register('./serviceWorker');
+      }
+    </script>
   </body>
 </html>
