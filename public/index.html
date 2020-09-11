@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/png" href="./images/logo-1024" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app"/>
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />    
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />    
-    <title>React App</title>
+    <meta name="description" content="Modern PWA Weather React Application"/>
+    <link rel="apple-touch-icon" href="./images/logo-1024" />    
+    <link rel="manifest" href="./manifest.json" />    
+    <title>Weather App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -17,7 +17,11 @@
       // Checking if the browser has a serviceworker function
       if('serviceWorker' in navigator){
         // Creating  our service worker
-        navigator.serviceWorker.register('./serviceWorker');
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceWorker.js')
+            .then((reg) => console.log('Success : ', reg.scope)) // Receiving the serviceWorker registration info 
+            .catch((err) => console.log('Failure : ', err)); // Getting errors
+        });
       }
     </script>
   </body>
